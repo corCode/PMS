@@ -1,0 +1,38 @@
+{ "_id" : "sender",
+"msg" : [
+{ "_id" : "PYGDuHEoz2i5CA3GA", "to" : "G7hTdkSvbeXTecbDZ", "msg" : "test msg", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T20:07:53.128Z") },
+{ "_id" : "YpqBq8oMH8uMdNr6d", "to" : "G7hTdkSvbeXTecbDZ", "propertyRef" : "5kNDhhdRsdGv5y2ht", "msg" : "test msg prop 001", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T20:16:51.544Z") },
+{ "_id" : "S7rQ2TC6ap2gqRJTk", "to" : "6zrux7evzN79WC5xW", "propertyRef" : "sRCqG4a4Q8Sv4BLCW", "msg" : "test msg 19eor", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T22:16:08.833Z") } ] }
+
+
+{ "_id" : "to",
+"msg" : [
+{ "_id" : "PYGDuHEoz2i5CA3GA", "to" : "G7hTdkSvbeXTecbDZ", "msg" : "test msg", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T20:07:53.128Z") },
+{ "_id" : "YpqBq8oMH8uMdNr6d", "to" : "G7hTdkSvbeXTecbDZ", "propertyRef" : "5kNDhhdRsdGv5y2ht", "msg" : "test msg prop 001", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T20:16:51.544Z") },
+{ "_id" : "S7rQ2TC6ap2gqRJTk", "to" : "6zrux7evzN79WC5xW", "propertyRef" : "sRCqG4a4Q8Sv4BLCW", "msg" : "test msg 19eor", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T22:16:08.833Z") } ] }
+
+
+{ "_id" : "to",
+"msg" : [
+{ "_id" : "PYGDuHEoz2i5CA3GA", "to" : "G7hTdkSvbeXTecbDZ", "msg" : "test msg", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T20:07:53.128Z") },
+{ "_id" : "YpqBq8oMH8uMdNr6d", "to" : "G7hTdkSvbeXTecbDZ", "propertyRef" : "5kNDhhdRsdGv5y2ht", "msg" : "test msg prop 001", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T20:16:51.544Z") },
+{ "_id" : "S7rQ2TC6ap2gqRJTk", "to" : "6zrux7evzN79WC5xW", "propertyRef" : "sRCqG4a4Q8Sv4BLCW", "msg" : "test msg 19eor", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T22:16:08.833Z") }, { "_id" : "QxNeEhfFE3DNspang", "to" : "dvFSTQrQGT7ipccEo", "propertyRef" : "MRyWXiDAhXiFZghGz", "msg" : "test msg to bbb", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T22:22:41.542Z") } ] }
+
+{ "_id" : "to",
+"msg" : [
+{ "_id" : "PYGDuHEoz2i5CA3GA", "to" : "G7hTdkSvbeXTecbDZ", "msg" : "test msg", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T20:07:53.128Z") },
+{ "_id" : "YpqBq8oMH8uMdNr6d", "to" : "G7hTdkSvbeXTecbDZ", "propertyRef" : "5kNDhhdRsdGv5y2ht", "msg" : "test msg prop 001", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T20:16:51.544Z") },
+{ "_id" : "S7rQ2TC6ap2gqRJTk", "to" : "6zrux7evzN79WC5xW", "propertyRef" : "sRCqG4a4Q8Sv4BLCW", "msg" : "test msg 19eor", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T22:16:08.833Z") },
+{ "_id" : "QxNeEhfFE3DNspang", "to" : "dvFSTQrQGT7ipccEo", "propertyRef" : "MRyWXiDAhXiFZghGz", "msg" : "test msg to bbb", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T22:22:41.542Z") },
+{ "_id" : "oyhAniYYSeGw9ncyL", "to" : "6zrux7evzN79WC5xW", "propertyRef" : "j83CEcQBcJrSPKzkq", "msg" : "test msg to ddd", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T22:24:07.134Z") } ] }
+
+{ "_id" : "dvFSTQrQGT7ipccEo", "msg" : [
+        { "_id" : "QxNeEhfFE3DNspang", "to" : "dvFSTQrQGT7ipccEo", "propertyRef" : "MRyWXiDAhXiFZghGz", "msg" : "test msg to bbb", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T22:22:41.542Z") } ] }
+
+{ "_id" : "6zrux7evzN79WC5xW", "msg" : [
+        { "_id" : "S7rQ2TC6ap2gqRJTk", "to" : "6zrux7evzN79WC5xW", "propertyRef" : "sRCqG4a4Q8Sv4BLCW", "msg" : "test msg 19eor", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T22:16:08.833Z") },
+        { "_id" : "oyhAniYYSeGw9ncyL", "to" : "6zrux7evzN79WC5xW", "propertyRef" : "j83CEcQBcJrSPKzkq", "msg" : "test msg to ddd", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T22:24:07.134Z") } ] }
+
+{ "_id" : "G7hTdkSvbeXTecbDZ", "msg" : [
+        { "_id" : "PYGDuHEoz2i5CA3GA", "to" : "G7hTdkSvbeXTecbDZ", "msg" : "test msg", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T20:07:53.128Z") },
+        { "_id" : "YpqBq8oMH8uMdNr6d", "to" : "G7hTdkSvbeXTecbDZ", "propertyRef" : "5kNDhhdRsdGv5y2ht", "msg" : "test msg prop 001", "senderId" : "G7hTdkSvbeXTecbDZ", "sender" : "aaa", "sentTime" : ISODate("2015-04-26T20:16:51.544Z") } ] }

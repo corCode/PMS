@@ -1,0 +1,11 @@
+header{
+    background-color:red;
+}
+header .navbar{
+    margin-bottom: 0;
+}
+
+.header{
+    display: inline-block;
+    border-bottom: 6px solid red;
+}

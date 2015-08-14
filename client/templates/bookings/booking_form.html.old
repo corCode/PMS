@@ -1,0 +1,67 @@
+<template name="bookingForm">
+
+    <div id="bookingFormModal" class="modal fade" role="dialog">
+
+        <div class="row">
+            <div class="span4 offset4" style="float: right; text-align: left">
+                Request to book
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span4 offset4" style="float: right; text-align: left">
+                Price: ${{rate}} per night<br></div>
+
+        </div>
+
+        <div class="row form-group {{errorClass 'checkIn'}}">
+
+            <div class="span4 offset4" style="float: right; text-align: left">
+                Check in: <input id="checkIn" name = "checkIn" type="date" min="{{todayDate}}" value="{{checkInDate}}">
+                <span class="help-block">{{errorMessage 'checkIn'}}</span>
+            </div>
+
+        </div>
+
+        <div class="row form-group {{errorClass 'checkOut'}}">
+            <div class="span4 offset4" style="float: right; text-align: left">
+                Check out: <input id="checkOut" name = "checkOut" type="date" min="{{todayDate}}" value="{{checkOutDate}}">
+                <span class="help-block">{{errorMessage 'checkOut'}}</span>
+
+            </div>
+
+        </div>
+
+        {{#if numOfNights}}
+        <div class="row">
+            <div class="span4 offset4" style="float: right; text-align: left">
+                ${{rate}} x {{numOfNights}} nights : ${{roomPrice}}</div>
+
+        </div>
+        {{/if}}
+
+        {{#each services ..}}
+        <div class="row">
+            <div class="span4 offset4" style="float: right; text-align: left">
+                {{name}} - ${{price}}
+                <input id="service_{{index}}" class="services" type="checkbox" checked="{{selected}}" >
+                <br>
+                <label>
+                    Instruction
+                </label>
+                <textarea id="service{{index}}Instruction"></textarea>
+            </div>
+        </div>
+        {{/each}}
+
+        {{#if totalPrice}}
+            <div class="row">
+                <div class="span4 offset4" style="float: right; text-align: left">
+                    Total : ${{totalPrice}}</div>
+
+            </div>
+        {{/if}}
+
+        <a href="#" class="book btn btn-success">Request to Book</a>
+    </div>
+</template>

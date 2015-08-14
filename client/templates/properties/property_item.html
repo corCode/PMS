@@ -1,0 +1,64 @@
+
+<template name="propertyItem">
+    <div class="property">
+
+        <div class="property-content">
+
+
+            <h3>
+                {{#if titleImage}}
+                    <a href="{{pathFor 'propertyPage'}}" class="image">
+                        <img src="/cfs/files/images/{{titleImage}}" class=" img-thumbnail" width="100" height="100"></a>
+                {{/if}}
+                <a href="{{pathFor 'propertyPage'}}">
+                    {{title}}
+                </a>
+                by {{owner}}
+                <span>${{rate}}</span>
+
+
+                    <!--
+                        <a href="{{pathFor 'propertyPage'}}">
+                    {{#each images}}
+
+                        <img src="/cfs/files/images/{{this}}" width="100">
+
+                    {{/each}}
+                        </a>
+                        -->
+
+                <br>
+                <!--
+                {{#each availableDates}}
+                    {{this.startDate}} - {{this.endDate}}
+                    {{/each}}
+                    -->
+
+                <br>
+                <span>
+                    {{address.city}}{{#if address.state}}, {{address.state}}{{/if}}, {{address.country}}
+                    </span>
+
+               <!--
+                <span>{{description}}</span>
+                -->
+            </h3>
+
+
+<!--
+            <p>
+                {{#if ownProperty}}<a href="{{pathFor 'propertyEdit'}}">Edit</a>{{/if}}
+            </p>
+-->
+
+        </div>
+
+        <a href="{{pathFor 'propertyPage'}}" class="view btn btn-success">View</a>
+
+
+    </div>
+
+
+
+
+</template>

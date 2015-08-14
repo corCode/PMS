@@ -1,0 +1,6 @@
+{ "_id" : "6uterfABNnSiX8H2n",
+    "participants" : [ "RYFHbBHm6byvXiPA7", "G4mgGENwoLFv4LsX5" ],
+    "message" : [ { "recipientId" : "G4mgGENwoLFv4LsX5", "recipient" : "owner2", "propertyId" : "BqRDgJtwcN8cN5dXH", "propertyName" : "Property 003", "msg" : "aaaaa", "senderId" : "RYFHbBHm6byvXiPA7", "sender" : "user1", "sentTime" : ISODate("2015-05-08T09:42:19.282Z") } ], "created" : ISODate("2015-05-08T09:42:19.282Z"),
+    "messages" : [
+        { "recipientId" : "G4mgGENwoLFv4LsX5", "recipient" : "owner2", "propertyId" : "BqRDgJtwcN8cN5dXH", "propertyName" : "Property 003", "msg" : "sssss", "conversaionId" : "6uterfABNnSiX8H2n" },
+        { "recipientId" : "G4mgGENwoLFv4LsX5", "recipient" : "owner2", "propertyId" : "BqRDgJtwcN8cN5dXH", "propertyName" : "Property 003", "msg" : "gggg", "conversaionId" : "6uterfABNnSiX8H2n" } ] }

@@ -1,0 +1,28 @@
+<template name="bookingDetails">
+
+
+    Property: <a href="{{pathFor 'propertyPage' _id=propertyId}}">{{propertyName}}</a>
+    <br>
+    Check-In: {{checkInDisplay}}
+    <br>
+    Check-Out: {{checkOutDisplay}}
+    <br>
+
+    {{numberOfNights}} night(s) for ${{roomPrice}}
+    <br>
+    <!--
+    Room total: ${{total}}
+    <br>
+    -->
+    {{#if services}}
+        Services requested: <br>
+        {{#each services}}
+            {{name}} - ${{price}} <br>
+        {{/each}}
+    {{/if}}
+    Total Price: ${{totalPrice}} <br>
+        Status: {{status}}
+
+
+
+</template>

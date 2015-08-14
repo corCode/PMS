@@ -1,0 +1,46 @@
+<template name="bookingsList">
+
+
+    {{#each bookings}}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-sm-9">
+            {{>bookingDetails}}
+
+            </div>
+
+            <div class="col-sm-3">
+            <div class="btn-group-vertical btn-group-sm">
+                {{#if isAdmin}}
+                    {{#unless isCancelled}}
+                        {{#unless isExpired}}
+                        <button type="button" id="{{_id}}" class="bookingResp btn btn-success" value="Accepted">Accept</button>
+                        <button type="button" id="{{_id}}" class="bookingResp btn btn-danger" value="Declined">Decline</button>
+                            {{/unless}}
+                    {{/unless}}
+                {{else}}
+                    <!--
+                    <button type="button" class="modify btn btn-success btn-sm" data-toggle="modal" data-target="#bookingFormModal{{_id}}" id="{{_id}}">Modify</button>
+
+
+                    {{> bookingForm}}-->
+                    {{#unless isCancelled}}
+                        {{#unless isExpired}}
+                            <a id="{{_id}}" href="{{pathFor 'bookingEdit'}}" class="view btn btn-default">Modify</a>
+                            <button type="button" id="{{_id}}" class="bookingCancel btn btn-danger">Cancel</button>
+                        {{else}}
+                            {{#if isAccepted}}
+                            <a id="{{_id}}" href="{{pathFor 'propertyPage' _id=propertyId}}" class="view btn btn-default">Leave a review</a>
+                                {{/if}}
+                        {{/unless}}
+                    {{/unless}}
+                {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+        <hr>
+    {{/each}}
+
+
+</template>

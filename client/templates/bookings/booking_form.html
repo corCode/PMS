@@ -1,0 +1,81 @@
+<template name="bookingForm">
+
+    <div id="bookingFormModal{{bookingId}}" class="modal fade" role="dialog">
+        {{bookingId}}
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class = "modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Request to book</h4>
+                </div>
+
+                <div class="modal-body">
+                    <form role="form">
+                    <div >
+                        Price: ${{rate}} per night<br>
+                    </div>
+
+                        <!--
+                <div class="form-group {{errorClass 'checkIn'}}">
+
+                    <div >
+                        Check in: <input id="checkIn" name = "checkIn" type="date" min="{{todayDate}}" value="{{checkInDate}}">
+                        <span class="help-block">{{errorMessage 'checkIn'}}</span>
+                    </div>
+
+                </div>
+
+                <div class="form-group {{errorClass 'checkOut'}}">
+                    <div >
+                        Check out: <input id="checkOut" name = "checkOut" type="date" min="{{todayDate}}" value="{{checkOutDate}}">
+                        <span class="help-block">{{errorMessage 'checkOut'}}</span>
+
+                    </div>
+
+                </div>
+                -->
+                {{> daterangeInput}}
+
+            {{#if numOfNights}}
+                <div >
+                    ${{rate}} x {{numOfNights}} nights : ${{roomPrice}}
+                </div>
+            {{/if}}
+
+        {{#each services ..}}
+
+            <div >
+
+                {{name}} - ${{price}}
+                <input id="service_{{index}}" class="services" type="checkbox" checked="{{selected}}" >
+                <br>
+                <label>
+                    Instruction
+                </label>
+                <textarea id="service{{index}}Instruction"></textarea>
+            </div>
+
+        {{/each}}
+
+        {{#if totalPrice}}
+
+            <div >
+                Total : ${{totalPrice}}
+            </div>
+
+        {{/if}}
+        <div>
+            {{#if isBook}}
+            <a href="#" class="book btn btn-success">Request to Book</a>
+                {{else}}
+            <a href="#" class="confirm btn btn-success">Modify</a>
+            {{/if}}
+
+        </div>
+                    </form>
+        </div>
+    </div>
+    </div>
+        </div>
+</template>

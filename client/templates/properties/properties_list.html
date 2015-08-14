@@ -1,0 +1,71 @@
+<template name="propertiesList">
+    <div class="propertiesList">
+    <div class="form-group">
+        <form name="searchProperties" id="searchProperties">
+
+            <div>
+
+                <label class="control-label" for="checkIn">Check In Date</label>
+                <input id="checkIn" name = "checkIn" type="date" min="{{todayDate}}" value="{{checkInDate}}">
+
+
+                <label class="control-label" for="checkOut">Check Out Date</label>
+                <input id="checkOut" name="checkOut" type="date" min="{{todayDate}}" value="{{checkOutDate}}">
+            </div>
+
+            Search properties in<br>
+
+            <label class="control-label" for="searchCity">City</label>
+            <input class="text-capitalize" name="searchCity" id="searchCity" type="text" placeholder="City" value="{{searchLocation}}">
+            <label class="control-label" for="searchCountry">Country</label>
+            <input class="text-capitalize" name="searchCountry" id="searchCountry" type="text" placeholder="Country" value="{{searchLocation}}">
+
+
+
+<!--
+            <input id="search" type="submit" class="btn-default btn-xs" value="Search">
+            -->
+            <a id="search" href="#" class="btn-info btn-sm">
+                <span class="glyphicon glyphicon-search"></span>
+                Search</a>
+
+
+            <input class="btn-default btn-sm" type="reset">
+        </form>
+
+        <label class="control-label" for="sortOption">Sort by</label>
+
+
+        <select name="sortOption" id="sortOption" >
+            <option value="byNewest">Newest</option>
+            <option value="byLowestPrice">Lowest Price</option>
+            <option value="byHighestPrice">Highest Price</option>
+            <option value="byName">Name</option>
+            <option value="byLocation">City/Country</option>
+        </select>
+
+    <div>
+
+    {{#if isSearched}}
+        <span>
+            Found {{searchResultsCount}} properties.
+        </span>
+    {{/if}}
+
+    </div>
+</div>
+
+
+
+        {{#if searchResults}}
+
+                {{#each searchResults}}
+                    {{> propertyItem}}
+                    {{/each}}
+        {{else}}
+            {{#each properties}}
+                {{> propertyItem}}
+            {{/each}}
+        {{/if}}
+    </div>
+</template>

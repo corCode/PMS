@@ -1,0 +1,88 @@
+<template name="header">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{pathFor 'propertiesList'}}">Property Management System</a>
+                <a id="goBack" href="">Back</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navigation">
+
+                {{#if currentUser}}
+                <ul class="nav navbar-nav">
+
+                        {{#if showSubmitProperty}}
+                            <li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Properties
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{pathFor 'propertySubmit'}}">Submit Property</a></li>
+                                    <li><a href="/myProperties">My Properties</a></li>
+                                </ul>
+
+                            </li>
+
+
+                        {{/if}}
+
+
+
+                    <!--
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="{{pathFor 'accountPage' _id=loggedInUserId }}">Account</a>
+                        </li>
+                    </ul>
+
+                    <li>
+                        <a href="{{pathFor 'accountPage' _id=loggedInUserId }}">Account</a>
+                    </li>
+                    -->
+                    <li>
+
+                                <a href="{{pathFor 'accountPage' _id=loggedInUserId }}" class="dropdown-toggle" data-toggle="dropdown">Account
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{pathFor 'bookingsList' _id=loggedInUserId}}">Bookings</a></li>
+                                <li><a href="{{pathFor 'messagesList' _id=loggedInUserId}}">Inbox</a></li>
+
+                                <li><a href="{{pathFor 'accountPage' _id=loggedInUserId}}">My account</a></li>
+                            </ul>
+
+                    </li>
+
+                    {{#if showAdmin}}
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{pathFor 'accountCreate' _id=loggedInUserId}}">Create account</a></li>
+                                <li><a href="{{pathFor 'bookingsList' _id=loggedInUserId}}">View bookings</a></li>
+
+                                <li><a href="{{pathFor 'reports' _id=loggedInUserId}}">Generate reports</a></li>
+                            </ul>
+
+                        </li>
+
+                    {{/if}}
+
+                    <li>
+                        {{> notifications}}
+                    </li>
+                </ul>
+
+                {{/if}}
+
+                <ul class="nav navbar-nav navbar-right">
+                    {{> loginButtons}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</template>
+

@@ -1,0 +1,36 @@
+<template name="notifications">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        Notifications
+        {{#if notificationCount}}
+            <span class="badge badge-inverse">{{notificationCount}}</span>
+        {{/if}}
+        <b class="caret"></b>
+    </a>
+    <ul class="notification dropdown-menu">
+        {{#if notificationCount}}
+            {{#each notifications}}
+                {{> notificationItem}}
+            {{/each}}
+        {{else}}
+            <li><span>No Notifications</span></li>
+        {{/if}}
+    </ul>
+</template>
+
+<template name="notificationItem">
+    <li>
+
+        <a href="{{notificationItemPath}}">
+
+            {{#if isReviewNotification}}
+                <strong>{{fromUser}}</strong> commented on your post
+            {{/if}}
+            {{#if isMessageNotification}}
+                <span class="glyphicon glyphicon-envelope"></span>New message from <strong>{{fromUser}}</strong>
+            {{/if}}
+            {{#if isNewBookingNotification}}
+                <strong>{{fromUser}}</strong> requested to book your property
+            {{/if}}
+        </a>
+    </li>
+</template>

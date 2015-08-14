@@ -1,0 +1,133 @@
+
+
+Template.sendMessage.helpers({
+
+    previousMsg: function () {
+
+        console.log("inbox...");
+        var participantId = "";
+
+        if (this.ownerId)
+            participantId = this.ownerId;
+        else
+        {
+
+            if (this.participants) {
+
+                console.log(" me = " + Meteor.userId());
+                //console.log(ppl[0]);
+                //console.log(Meteor.users.findOne(ppl[0]));
+
+                if (this.participants.indexOf(Meteor.userId()) === 0)
+
+                    participantId  = this.participants[1];
+                else
+                    participantId = this.participants[0];
+            }
+        }
+
+        var curConversation = Conversations.findOne({participants: participantId});
+        console.log('find conversation...');
+        console.log(participantId);
+        console.log(curConversation);
+
+        if (curConversation) {
+            for (var i = 0; i < curConversation.messages.length; i++)
+            {
+                console.log (curConversation.messages[i]);
+                curConversation.messages[i].sentTimeDisp = formateDateForDisplay(curConversation.messages[i].sentTime);
+            }
+            return curConversation.messages;
+        }
+
+        return null;
+    }
+
+});
+
+
+Template.sendMessage.events({
+
+    'submit form': function (e) {
+
+        var thisRecipient = "";
+        if (this.ownerId)
+            thisRecipient = this.ownerId;
+        else {
+            var tmpP = this.participants;
+            tmpP.splice(this.participants.indexOf(Meteor.userId()), 1);
+            thisRecipient = tmpP[0];
+        }
+
+        // sending msg from "Contact Owner"
+        // "this" === current property
+        if (!this.ownerId) {
+            var thisProperty = this;
+
+            console.log("sendMessage submit form...");
+            console.log(this);
+            console.log(Meteor.user());
+
+            if (!thisProperty.ownerId)
+                throwError("Can't send message from this page!");
+            else {
+
+                var msg = $(event.target).find('[id=msgBody]').val();
+
+                var messageObj = {
+                    recipientId: thisProperty.ownerId,
+                    recipient: thisProperty.owner,
+
+                    propertyId: thisProperty._id,
+                    propertyName: thisProperty.title,
+
+                    msg: $(event.target).find('[id=msgBody]').val()
+                };
+
+                var conversation = Conversations.findOne({participants: thisProperty.ownerId});
+                //alert("!!!");
+
+                console.log("send message...");
+                //alert("!!!");
+                console.log(thisProperty.ownerId);
+                //alert("!!!");
+                console.log(conversation);
+                //alert("!!!");
+
+
+                if (conversation) {
+
+                    //append the message to the existing conversation
+                    messageObj.conversaionId = conversation._id;
+
+                    alert(messageObj.conversaionId);
+
+                    Meteor.call('conversationUpdate', messageObj, function (error, result) {
+                        if (error)
+                            throwError(error.reason);
+                    })
+
+                }
+                else {
+                    //Start new conversation
+                    Meteor.call('conversationInsert', messageObj, function (error, result) {
+
+                        if (error)
+                        //return alert(error.reason);
+                            throwError(error.reason);
+
+                        //Router.go('payment', {_id: result._id});
+
+                    });
+                }
+
+                Meteor.call('sendEmail',
+                    'corrie.lch@gmail.com',
+                    'bob@example.com',
+                    'Message from PMS',
+                    'This is a test of Email.send.');
+
+            }
+        }
+    }
+});

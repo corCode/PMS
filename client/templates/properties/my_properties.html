@@ -1,0 +1,17 @@
+<template name="myProperties">
+    <div class="propertiesList">
+
+        {{#if propCount}}
+            <h3>{{propCount}} properties</h3>
+        {{else}}
+            <h3>No Properties</h3>
+        {{/if}}
+
+        {{#each myProps}}
+
+
+            {{> propertyItem}}
+        {{/each}}
+    </div>
+
+</template>

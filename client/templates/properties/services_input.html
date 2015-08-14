@@ -1,0 +1,29 @@
+<template name="servicesInput">
+
+
+
+    {{#with page}}
+
+
+        {{#each rows}}
+            <div class="row-fluid page-row {{#if isSelected this}}selected-row{{/if}}">
+                ... page content here
+            </div>
+        {{/each}}
+    {{/with}}
+
+    <div class="btn-toolbar">
+        <div class="pull-right">
+            <a id="add-row" href="#" data-toggle="tooltip" title="{{lbl 'add-page'}}">
+                <img src="/images/add.png" class="asset-icon"/>
+            </a>
+
+            <img src="/images/separator.png" class="asset-icon"/>
+
+            <a id="delete-row" href="#" data-toggle="tooltip" title="{{lbl 'delete-page'}}">
+                <img src="/images/delete.png" class="asset-icon"/>
+            </a>
+        </div>
+    </div>
+
+</template>

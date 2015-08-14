@@ -1,0 +1,53 @@
+<template name="accountPage">
+
+    <div class="page">
+
+
+        <div class="account">
+            <div class="account-content">
+                <h3>
+
+
+                    {{userAccount.username}}
+
+                    <!--
+                    {{#with userAccount}}
+                    <a href="{{pathFor 'accountPage'}}">
+                        username: {{username}} ({{profile.userType}})
+                    </a>
+
+                    <hr>
+
+                    {{/with}}
+                    -->
+                </h3>
+
+                <p>
+                    {{#if isManager}}
+                        <a href="{{pathFor 'accountCreate'}}">Create Account</a>
+                    {{/if}}
+                </p>
+            </div>
+
+            <div>
+                My bookings:
+                {{#each myBookings}}
+                    <li>
+                    {{> bookingDetails}}
+                        <!--
+                    <a href="{{pathFor 'payment' _id=_id}}">{{_id}}</a> :
+                    <a href="{{pathFor 'propertyPage' _id=propertyId}}">{{propertyId}}</a>
+                    -->
+                    <br>
+                    </li>
+                {{/each}}
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+</template>

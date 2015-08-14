@@ -1,0 +1,15 @@
+.page-title{
+	display: inline-block;
+	border-bottom: 6px solid #c29d5a;
+}
+
+.service-block a{
+	display: block;
+}
+.row{
+	margin-bottom: 20px
+}
+.advertisment{
+	padding: 0;
+	overflow: hidden;
+}

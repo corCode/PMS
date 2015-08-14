@@ -1,0 +1,184 @@
+<template name="propertyFormFields" xmlns="http://www.w3.org/1999/html">
+
+
+
+
+        <div class="form-group {{errorClass 'title'}}">
+            <lable class="control-label" for="title">Title</lable>
+
+            <div class="controls">
+                <input name="title" id="title" type="text" value="{{title}}" placeholder="Property Title" class="form-control text-capitalize"/>
+                <span class="help-block">{{errorMessage 'title'}}</span>
+
+            </div>
+        </div>
+
+        <!--
+        ********************************************
+                Address
+         ******************************************
+                -->
+        <div class="form-group {{errorClass 'address1'}}">
+            <lable class="control-label" for="address1">Address 1</lable>
+            <div class="controls">
+                <input name="address1" id="address1" type="text" value="{{address.address1}}" placeholder="Address 1" class="form-control text-capitalize"/>
+                <span class="help-block">{{errorMessage 'address1'}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <lable class="control-label" for="address2">Address 2</lable>
+            <div class="controls">
+                <input name="address2" id="address2" type="text" value="{{address.address2}}" placeholder="Address 2" class="form-control text-capitalize"/>
+            </div>
+        </div>
+        <div class="form-group {{errorClass 'city'}}">
+            <lable class="control-label" for="city">City</lable>
+            <div class="controls">
+                <input name="city" id="city" type="text" value="{{address.city}}" placeholder="City" class="form-control text-capitalize"/>
+                <span class="help-block">{{errorMessage 'city'}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <lable class="control-label" for="postcode">Postcode</lable>
+            <div class="controls">
+                <input name="postcode" id="postcode" type="text" value="{{address.postcode}}" placeholder="Postcode" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <lable class="control-label" for="state">State/region/province</lable>
+            <div class="controls">
+                <input name="state" id="state" type="text" value="{{address.state}}" placeholder="State/region/province" class="form-control text-capitalize"/>
+            </div>
+        </div>
+        <div class="form-group {{errorClass 'country'}}">
+            <lable class="control-label" for="country">Country</lable>
+            <div class="controls">
+                <input name="country" id="country" type="text" value="{{address.country}}" placeholder="Country" class="form-control text-capitalize"/>
+            </div>
+        </div>
+        <!-- ************************************************************************************** -->
+
+        <div class="form-group">
+            <lable class="control-label" for="description">Description</lable>
+            <div class="controls">
+                <textarea name="desc" id="description" type="text" value="{{description}}" placeholder="Description" class="form-control"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group {{errorClass 'rate'}}">
+            <lable class="control-label" for="rate">Rate</lable>
+            <div class="controls">
+                <input name="rate" id="rate" type="number" step="any" value="{{rate}}" placeholder="0.00" class="form-control"/>
+                <span class="help-block">{{errorMessage 'rate'}}</span>
+            </div>
+        </div>
+
+
+
+        <div class="form-group {{errorClass 'dates'}}">
+        <lable class="control-label" for="AvailableDate">Availability</lable>
+        <div class="controls">
+            {{#if availableDates}}
+                {{#each availableDates}}
+                    <!--
+                    <div class="input-daterange input-group" id="datepicker">
+                        <input name="startAvailableDate" id="startAvailableDate" type="text" placeholder="01/01/2015" value="{{startDate}}"  class="form-control {{errorClass 'startAvailableDate'}}"/>
+                        <span class="input-group-addon">to</span>
+                        <input name="endAvailableDate"  id="endAvailableDate" type="text" placeholder="01/01/2016" value="{{endDate}}"  class="form-control {{errorClass 'endAvailableDate'}}"/>
+                    </div>
+                    -->
+                {{> daterangeInput }}
+
+                <!--
+                Start Date: <input name="startAvailableDate" id="startAvailableDate" type="date" placeholder="01/01/2015" value="{{startDateString}}"  class="form-control {{errorClass 'startAvailableDate'}}"/>
+                End Date: <input name="endAvailableDate"  id="endAvailableDate" type="date" placeholder="01/01/2016" value="{{endDateString}}"  class="form-control {{errorClass 'endAvailableDate'}}"/>
+                -->
+                {{/each}}
+            {{else}}
+
+                {{> daterangeInput}}
+                <!--
+                Start Date: <input name="startAvailableDate" id="startAvailableDate" type="date" placeholder="01/01/2015" value=""  class="form-control"/>
+                <span class="help-block">{{errorMessage 'startAvailableDate'}}</span>
+                End Date: <input name="endAvailableDate"  id="endAvailableDate" type="date" placeholder="01/01/2016" value=""  class="form-control"/>
+                <span class="help-block">{{errorMessage 'endAvailableDate'}}</span>
+
+                <div class="input-daterange input-group" id="datepicker">
+                    <input name="startAvailableDate" id="startAvailableDate" type="text" placeholder="01/01/2015" value=""  class="form-control"/>
+                    <span class="help-block">{{errorMessage 'startAvailableDate'}}</span>
+                    <span class="input-group-addon">to</span>
+                    <input name="endAvailableDate"  id="endAvailableDate" type="text" placeholder="01/01/2016" value=""  class="form-control"/>
+                </div>
+                -->
+            {{/if}}
+
+        </div>
+</div>
+
+
+
+
+
+        <div class="form-group">
+            <lable class="control-label" for="images">Images</lable>
+
+            {{#if images}}
+                {{#each images}}
+                    <div>
+                    <img src="/cfs/files/images/{{this}}" width="100">
+                    <a class="delete" href="#">Delete</a>
+                    </div>
+                {{/each}}
+
+            {{/if}}
+
+            {{> fileUpload}}
+
+        </div>
+
+<!--
+
+                <script>
+
+                    var counter = 1;
+                    var limit = 3;
+                    function addInput(divName){
+                        if (counter == limit)  {
+                            alert("You have reached the limit of adding " + counter + " inputs");
+                        }
+                        else {
+                            var newdiv = document.createElement('div');
+                            newdiv.innerHTML = "Entry " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
+                            document.getElementById(divName).appendChild(newdiv);
+                            counter++;
+                        }
+                    }
+                </script>
+                <div id="dynamicInput">
+                    Entry 1<br><input type="text" name="myInputs[]">
+                </div>
+                <input type="button" value="Add another text input" onClick="addInput('dynamicInput');">
+                -->
+            <div class="form-group">
+                {{#each services}}
+                <div class="controls has-border">
+
+                    <lable class="control-label" for="service">Service</lable>
+                    <input name="service{{this.index}}" id="service{{this.index}}" type="text" step="any" value="{{#if name}}{{name}}{{/if}}" placeholder="" class="form-control"/>
+                    <lable class="control-label" for="serviceDesc">Service Description</lable>
+                    <textarea name="service{{this.index}}Desc" id="service{{this.index}}Desc" type="text" step="any" value="{{#if desc}}{{desc}}{{/if}}" placeholder="" class="form-control"></textarea>
+                    <lable class="control-label" for="serviceDesc">Service Price</lable>
+                    <input name="service{{this.index}}Price" id="service{{this.index}}Price" type="text" step="any" value="{{#if price}}{{price}}{{/if}}" placeholder="" class="form-control"/>
+
+                </div>
+                    <br>
+                {{/each}}
+                <a class="btn btn-default add-service btn-xs" href="#">Add more services</a>
+            </div>
+
+
+
+
+
+
+</template>

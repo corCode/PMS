@@ -1,0 +1,70 @@
+<template name="reports">
+
+
+    {{#if showBookingReport}}
+        Between {{start}} to {{end}}
+    <li>
+        {{bookingsCount}} bookings
+    </li>
+        <li>
+            {{availablePropertiesCount}} properties available
+        </li>
+        {{/if}}
+
+
+    {{#if showServicesReport}}
+        <h3>Between {{start}} to {{end}}</h3>
+
+            <h3>Services requested</h3>
+
+            {{#each servicesRequested}}
+                On {{propertyName}} from {{checkInDisp}} to {{checkOutDisp}}
+                {{#each services}}
+                    <li>
+                    {{name}}
+                    </li>
+                    {{/each}}
+                {{/each}}
+
+
+    {{/if}}
+
+    {{#if showGenerate}}
+    <div class="panel panel-default">
+        <div class="panel-body">
+    <h3>Generate booking reports</h3>
+
+<form id="bookingReport">
+        <div class="input-daterange input-group" id="bookingDatepicker">
+            <input name="startDate" id="bookingStartDate" type="text" placeholder="" value=""  class="form-control"/>
+
+            <span class="input-group-addon">to</span>
+            <input name="endDate"  id="bookingEndDate" type="text" placeholder="" value=""  class="form-control"/>
+
+        </div>
+    <input type="hidden" name="type" value="booking">
+    <button type="submit" id="booking" class="btn btn-success">Go</button>
+    </form>
+            </div>
+        </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+        <h3>Generate services reports</h3>
+
+        <form id="servicesReport">
+        <div class="input-daterange input-group" id="servicesDatepicker">
+            <input name="startDate" id="servicesStartDate" type="text" placeholder="" value=""  class="form-control"/>
+
+            <span class="input-group-addon">to</span>
+            <input name="endDate"  id="servicesEndDate" type="text" placeholder="" value=""  class="form-control"/>
+
+        </div>
+            <input type="hidden" name="type" value="services">
+        <button type="submit" id="services" class="btn btn-success">Go</button>
+            </form>
+            </div>
+    </div>
+    {{/if}}
+</template>

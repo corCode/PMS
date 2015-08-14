@@ -1,0 +1,118 @@
+
+<template name="propertyDetails">
+
+
+    <div class="property">
+
+        <div class="property-content">
+
+            <h3>
+                <a href="{{pathFor 'propertyPage'}}">
+                    {{title}}
+                </a>
+                by {{owner}}
+
+                <span>
+                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#sendMessageModal">Contact Owner</button>
+                    {{> sendMessage}}
+                </span>
+                <br>
+                <!--
+                {{#each availableDates}}
+                    {{this.startDate}} - {{this.endDate}}
+                {{/each}}
+                -->
+                <br>
+                <span>
+                    {{address.address1}}
+                    {{#if address.address2}}
+                    , {{address.address2}}
+                    {{/if}}
+
+                    , {{address.city}}
+                    {{#if address.state}}
+                    , {{address.state}}
+                    {{/if}}
+                    <br>
+                    {{address.country}}
+                    </span>
+                <hr>
+
+            </h3>
+
+            <span>${{rate}}</span>
+
+            <div>
+                {{#if services}}
+                <h3>Services available</h3>
+                {{#each services}}
+
+                    {{name}} - ${{price}}
+                    <br>
+                    {{desc}}
+                    <br>
+
+                {{/each}}
+                {{/if}}
+
+            </div>
+
+            <div>
+                <h3>About this property</h3>
+            <span>{{description}}</span>
+            </div>
+
+            <p>
+                {{#if canEdit}}<a href="{{pathFor 'propertyEdit'}}">Edit</a>{{/if}}
+            </p>
+
+
+
+            <p>
+
+                {{#each images}}
+                    <a href="#" class="image" > <img src="/cfs/files/images/{{this}}" class=" img-thumbnail" width="100"></a>
+                {{/each}}
+                <!--
+<a href="{{pathFor 'propertyPage'}}">
+{{#each images}}
+
+<img src="/cfs/files/images/{{this}}" width="100">
+
+    {{/each}}
+</a>
+-->
+            </p>
+        </div>
+        <div>
+                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#bookingFormModal">Request to book</button>
+                            {{> bookingForm}}
+        </div>
+        <!--
+        {{> bookingForm}}
+        -->
+
+
+
+    </div>
+
+    <div>
+        {{#if reviewsCount}}
+        <h3>{{reviewsCount}} Reviews</h3>
+
+
+        {{/if}}
+        <ul class="comments">
+            {{#each reviews}}
+                {{> reviewItem}}
+            {{/each}}
+        </ul>
+
+        {{#if allowedToReview}}
+            {{> reviewSubmit}}
+        {{/if}}
+
+    </div>
+
+
+</template>

@@ -1,0 +1,11 @@
+<template name="daterangeInput">
+
+    <div class="input-daterange input-group" id="datepicker">
+        <input name="startDate" id="startDate" type="text" placeholder="" value="{{startDateValue ..}}"  class="form-control  {{errorClass 'dates'}}"/>
+        <span class="help-block">{{errorMessage 'dates'}}</span>
+        <span class="input-group-addon">to</span>
+        <input name="endDate"  id="endDate" type="text" placeholder="" value="{{endDateValue ..}}"  class="form-control {{errorClass 'dates'}}"/>
+        <span class="help-block">{{errorMessage 'dates'}}</span>
+    </div>
+
+</template>

@@ -1,0 +1,15 @@
+footer.container{
+    padding-top: 20px;
+    background-color: purple;
+    color:white;
+    font-size: 0.8em;
+}
+footer p.title{
+    display: inline-block;
+    border-bottom: 4px solid orange;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+footer a{
+    color:white;
+}
