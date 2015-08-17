@@ -1,0 +1,76 @@
+<template name="index">
+    <div class="container content-container">
+
+        <section class="input-box">
+            <div class="input-group">
+                <input type="text" name="destination" value="" placeholder="Where you want to go?      &#xF0ac;">
+                <input type="datetime" name="checkIn" placeholder="Check In Date  &#xF073;">
+                <input type="datetime" name="checkOut" placeholder="Check Out Date  &#xF073;">
+                <div class="styled-select">
+                    <select name="numberOfGuest">
+                        <option value="1">1 guest</option>
+                        <option value="2">2 guest</option>
+                        <option value="3">3 guest</option>
+                        <option value="4">4 guest</option>
+                        <option value="5">5 guest</option>
+                    </select>
+                </div>
+                <input type="submit" name="submit" value="Search">
+            </div>
+
+        </section>
+
+        <section class="advertisment">
+            <div class="ad-container" id="ad1">
+                <a href="#"><img src="http://lorempixel.com/1440/490/city" alt=""></a>
+            </div>
+            <div class="ad-container" id="ad2">
+                <a href="#"><img src="http://lorempixel.com/1440/490/people" alt=""></a>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 ad-container" id="ad3">
+                    <a href="#"><img src="http://lorempixel.com/1440/490/sport" alt=""></a>
+                </div>
+                <div class="col-sm-6 ad-container" id="ad4">
+                    <a href="#"><img src="http://lorempixel.com/1440/490/abstract" alt=""></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="category">
+            <div class="row">
+                <a href="#">
+                    <div class="col-xs-12" id="promotion-item">
+                        <img src="http://lorempixel.com/1440/490/city" width="100%" alt="">
+                        <p class="description">testing room or what so ever</p>
+                    </div>
+                </a>
+            </div>
+            <div class="row">
+                <a href="">
+                    <div class="col-sm-6 col-md-4 imgSquare">
+                        <img src="http://lorempixel.com/700/700/abstract" alt="" class="img-responsive">
+                        <p class="description">HONG KONG</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="col-sm-6 col-md-4 imgSquare">
+                        <img src="http://lorempixel.com/700/700/abstract" alt="" class="img-responsive">
+                        <p class="description">FRANCE</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="col-sm-6 col-md-4 imgSquare">
+                        <img src="http://lorempixel.com/700/700/abstract" alt="" class="img-responsive">
+                        <p class="description">GERMANY</p>
+                    </div>
+                </a>
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+</template>
