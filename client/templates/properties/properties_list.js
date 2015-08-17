@@ -33,7 +33,7 @@ Template.propertiesList.created = function () {
 
 Template.propertiesList.rendered = function () {
 
-
+alert("???");
     console.log("rendered...");
     //document.getElementById('sortOption').value = "byName";
     //console.log(document.getElementById('sortOption'));

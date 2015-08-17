@@ -3,9 +3,11 @@
 
     <nav class="navbar" id="first-navbar" role="navigation">
         <div class="container-fluid">
+            <!--
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">WebSiteName</a>
             </div>
+            -->
             <div>
                 <ul class="nav navbar-nav">
                     <li><a href="" title=""><i class="fa fa-facebook"></i></a></li>
@@ -16,7 +18,7 @@
             </div>
                 {{#if currentUser}}
                     <div class="collapse navbar-collapse" id="navigation">
-                        <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav navbar-right">
 
                             {{#if showSubmitProperty}}
                                 <li>
@@ -60,10 +62,12 @@
                             <li>
                                 {{> notifications}}
                             </li>
+
+                            {{> loginButtons}}
                         </ul>
     <!--
                 <ul class="nav navbar-nav">
-                    {{> loginButtons}}
+
                 </ul>
                 -->
 
