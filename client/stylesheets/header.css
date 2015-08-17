@@ -1,5 +1,6 @@
 header{
     background-color:red;
+    width: 100%;
 }
 header .navbar{
     margin-bottom: 0;
@@ -8,4 +9,8 @@ header .navbar{
 .header{
     display: inline-block;
     border-bottom: 6px solid red;
+}
+
+#first-navbar a{
+    color:white;
 }

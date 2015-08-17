@@ -1,88 +1,148 @@
 <template name="header">
-    <nav class="navbar navbar-default" role="navigation">
+<header class="">
+
+    <nav class="navbar" id="first-navbar" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{{pathFor 'propertiesList'}}">Property Management System</a>
-                <a id="goBack" href="">Back</a>
+                <a class="navbar-brand" href="#">WebSiteName</a>
             </div>
-            <div class="collapse navbar-collapse" id="navigation">
-
-                {{#if currentUser}}
+            <div>
                 <ul class="nav navbar-nav">
+                    <li><a href="" title=""><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="" title=""><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="" title=""><i class="fa fa-google"></i></a></li>
+                    <li><a href="" title=""><i class="fa fa-youtube"></i></a></li>
+                </ul>
+            </div>
+                {{#if currentUser}}
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="nav navbar-nav">
 
-                        {{#if showSubmitProperty}}
+                            {{#if showSubmitProperty}}
+                                <li>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Properties
+                                        <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{pathFor 'propertySubmit'}}">Submit Property</a></li>
+                                        <li><a href="/myProperties">My Properties</a></li>
+                                    </ul>
+                                </li>
+                            {{/if}}
+
                             <li>
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Properties
+                                <a href="{{pathFor 'accountPage' _id=loggedInUserId }}" class="dropdown-toggle" data-toggle="dropdown">Account
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{pathFor 'propertySubmit'}}">Submit Property</a></li>
-                                    <li><a href="/myProperties">My Properties</a></li>
+                                    <li><a href="{{pathFor 'bookingsList' _id=loggedInUserId}}">
+                                        Bookings</a></li>
+                                    <li><a href="{{pathFor 'messagesList' _id=loggedInUserId}}">
+                                        Inbox</a></li>
+                                    <li><a href="{{pathFor 'accountPage' _id=loggedInUserId}}">
+                                        My account</a></li>
                                 </ul>
-
                             </li>
 
+                            {{#if showAdmin}}
+                                <li>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin
+                                        <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{pathFor 'accountCreate' _id=loggedInUserId}}">Create account</a></li>
+                                        <li><a href="{{pathFor 'bookingsList' _id=loggedInUserId}}">View bookings</a></li>
 
-                        {{/if}}
+                                        <li><a href="{{pathFor 'reports' _id=loggedInUserId}}">Generate reports</a></li>
+                                    </ul>
 
+                                </li>
 
+                            {{/if}}
 
-                    <!--
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a href="{{pathFor 'accountPage' _id=loggedInUserId }}">Account</a>
-                        </li>
-                    </ul>
-
-                    <li>
-                        <a href="{{pathFor 'accountPage' _id=loggedInUserId }}">Account</a>
-                    </li>
-                    -->
-                    <li>
-
-                                <a href="{{pathFor 'accountPage' _id=loggedInUserId }}" class="dropdown-toggle" data-toggle="dropdown">Account
-                                <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{pathFor 'bookingsList' _id=loggedInUserId}}">Bookings</a></li>
-                                <li><a href="{{pathFor 'messagesList' _id=loggedInUserId}}">Inbox</a></li>
-
-                                <li><a href="{{pathFor 'accountPage' _id=loggedInUserId}}">My account</a></li>
-                            </ul>
-
-                    </li>
-
-                    {{#if showAdmin}}
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin
-                                <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{pathFor 'accountCreate' _id=loggedInUserId}}">Create account</a></li>
-                                <li><a href="{{pathFor 'bookingsList' _id=loggedInUserId}}">View bookings</a></li>
-
-                                <li><a href="{{pathFor 'reports' _id=loggedInUserId}}">Generate reports</a></li>
-                            </ul>
-
-                        </li>
-
-                    {{/if}}
-
-                    <li>
-                        {{> notifications}}
-                    </li>
-                </ul>
-
-                {{/if}}
-
-                <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                {{> notifications}}
+                            </li>
+                        </ul>
+    <!--
+                <ul class="nav navbar-nav">
                     {{> loginButtons}}
                 </ul>
+                -->
+
+                </div>
+                {{else}}
+                    <div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href=""><i class="fa fa-phone"></i> (852) 1234 5678</a></li>
+                    <li><a href=""><i class="fa fa-envelope-o"></i> testing@testing.com</a></li>
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            English <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            ...
+                        </ul>
+                    </li>
+                    <li><a href="" title="">Book Now</a></li>
+
+                    {{> loginButtons}}
+                </ul>
+                    </div>
+                {{/if}}
+
+
+                <!--
+                <a id="goBack" href="">Back</a>
+                -->
+
+
+
+        </div>
+
+    </nav>
+
+
+</header>
+
+    <div class="header-img-container">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="http://lorempixel.com/1440/490/city" alt="...">
+                    <div class="carousel-caption">
+                        <h1 class="text-center"><span>Welcome Home 1</span></h1>
+                        <p class="text-center"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, dicta!</span></p>
+                        <a class="text-center" href="#">Read More</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="http://lorempixel.com/1440/490/people" alt="...">
+                    <div class="carousel-caption">
+                        <h1 class="text-center"><span>Welcome Home 2</span></h1>
+                        <p class="text-center"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, dicta!</span></p>
+                        <a class="text-center" href="#">Read More</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
+        <div class="container second-navbar-container center-block">
+            <nav class="navbar" id="second-navbar">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="imgs/logo_sm.png" alt=""></a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Whats News</a></li>
+                    <li><a href="">House</a></li>
+                    <li><a href="">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 </template>
 
