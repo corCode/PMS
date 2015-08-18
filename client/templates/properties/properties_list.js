@@ -33,8 +33,57 @@ Template.propertiesList.created = function () {
 
 Template.propertiesList.rendered = function () {
 
-alert("???");
     console.log("rendered...");
+    console.log(this.data.query);
+    var today = new Date();
+
+    if (this.data.query.submit === "Search")
+    {
+
+        if (isValidFutureDate(this.data.query.checkIn)) {
+
+            var checkIn = parseDate(this.data.query.checkIn);
+            console.log("query checkIn: " + checkIn);
+            console.log(checkIn < today);
+
+            if (checkIn < today)
+                checkIn = today;
+            Session.set('checkInDate', checkIn);
+            console.log("Session: " + Session.get("checkInDate"));
+        }
+
+        if (isValidFutureDate(this.data.query.checkOut)) {
+
+            var checkOut = parseDate(this.data.query.checkOut);
+            if (checkOut < today)
+                checkOut = addDaystoDate(today, 3);
+            Session.set('checkOutDate', checkOut);
+        }
+
+
+        //Session.set('searchCity', this.data.query.destination.split());
+        //Session.set('searchCountry', this.data.query.destination.split());
+        doSearch = true;
+        console.log("doSearch : " + doSearch);
+
+    }
+
+    if (this.data.query.destination) {
+
+        console.log("query destination: " + this.data.query.destination);
+
+        var destinationParts = this.data.query.destination.split(",");
+
+        console.log(destinationParts);
+
+        if (destinationParts.length === 2) {
+            Session.set('searchCity', destinationParts[0].trim());
+            Session.set('searchCountry', destinationParts[1].trim());
+        }
+        else
+            Session.set('searchCountry', this.data.query.destination.trim());
+
+    }
     //document.getElementById('sortOption').value = "byName";
     //console.log(document.getElementById('sortOption'));
 };
@@ -90,8 +139,25 @@ Template.propertiesList.helpers({
 
             if (!Session.get('checkInDate') && !Session.get('checkOutDate') && !Session.get('searchCity') && !Session.get('searchCountry'))
                 return null;
+            else if (!Session.get('checkInDate') && !Session.get('checkOutDate')) {
+                //Search base on location only
+                var cityRegex = new RegExp(Session.get('searchCity'), 'i');
+                var countryRegex = new RegExp(Session.get('searchCountry'), 'i');
+                console.log(cityRegex);
+                console.log(countryRegex);
+
+                var results = Properties.find({
+                    "address.city": cityRegex,
+                    "address.country": countryRegex
+                }, {sort: {submitted: -1}});
+
+                Session.set('resultsCount', results.count());
+                console.log("searchResults " + results.count());
+                console.log(results);
+                return results;
+            }
             else {
-                console.log("doSearch");
+                console.log("doSearch - full search");
 
                 var checkInModified = parseDate(formateDates(Session.get('checkInDate')));
                 var checkOutModified = parseDate(formateDates(Session.get('checkOutDate')));
