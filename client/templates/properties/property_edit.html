@@ -1,78 +1,14 @@
 <template name="propertyEdit">
 
-    <form class="main form page">
+    <div class="container content-container">
+    <form class="main form">
         {{> propertyFormFields}}
-<!--
-        <div class="form-group">
-            <lable class="control-label" for="title">Title</lable>
-            <div class="controls">
-                <input name="title" id="title" type="text" value="" placeholder="Property Title" class="form-control"/>
-            </div>
-        </div>
-
-        &lt;!&ndash;
-        ********************************************
-                Address
-         ******************************************
-                &ndash;&gt;
-        <div class="form-group">
-            <lable class="control-label" for="address1">Address 1</lable>
-            <div class="controls">
-                <input name="address1" id="address1" type="text" value="" placeholder="Address 1" class="form-control"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <lable class="control-label" for="address2">Address 2</lable>
-            <div class="controls">
-                <input name="address2" id="address2" type="text" value="" placeholder="Address 2" class="form-control"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <lable class="control-label" for="city">City</lable>
-            <div class="controls">
-                <input name="city" id="city" type="text" value="" placeholder="City" class="form-control"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <lable class="control-label" for="postcode">Postcode</lable>
-            <div class="controls">
-                <input name="postcode" id="postcode" type="text" value="" placeholder="Postcode" class="form-control"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <lable class="control-label" for="state">State/region/province</lable>
-            <div class="controls">
-                <input name="state" id="state" type="text" value="" placeholder="State/region/province" class="form-control"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <lable class="control-label" for="country">Country</lable>
-            <div class="controls">
-                <input name="country" id="country" type="text" value="" placeholder="Country" class="form-control"/>
-            </div>
-        </div>
-        &lt;!&ndash; ************************************************************************************** &ndash;&gt;
-
-        <div class="form-group">
-            <lable class="control-label" for="description">Description</lable>
-            <div class="controls">
-                <textarea name="desc" id="description" type="text" value="" placeholder="Description" class="form-control"></textarea>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <lable class="control-label" for="description">Rate</lable>
-            <div class="controls">
-                <input name="rate" id="rate" type="number" value="" placeholder="0.00" class="form-control"/>
-            </div>
-        </div>
--->
 
         <input type="submit" value="Submit" class="btn btn-primary submit" />
         <hr/>
         <a class="btn btn-danger delete" href="#">Delete property</a>
 
     </form>
-
+    </div>
 
 </template>
