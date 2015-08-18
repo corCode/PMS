@@ -13,4 +13,10 @@ header .navbar{
 
 #first-navbar a{
     color:white;
+    background-color: #FF0000;
+}
+
+#navigation a:hover{
+    color:white;
+    background-color: gray;
 }
