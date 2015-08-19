@@ -60,6 +60,13 @@ Template.propertiesList.rendered = function () {
             Session.set('checkOutDate', checkOut);
         }
 
+        if (this.data.query.occupancy && this.data.query.occupancy > 0)
+        {
+            Session.set('occupancy', this.data.query.occupancy);
+        }
+        else
+            Session.set('occupancy', 2);
+
 
         //Session.set('searchCity', this.data.query.destination.split());
         //Session.set('searchCountry', this.data.query.destination.split());
@@ -169,11 +176,16 @@ Template.propertiesList.helpers({
                 console.log(cityRegex);
                 console.log(countryRegex);
 
+                var occupancy = Number(Session.get('occupancy'));
+                console.log(occupancy);
+
                 var results = Properties.find({
                     "availableDates.startDate": {$lte: checkInModified},
                     "availableDates.endDate": {$gte: checkOutModified},
                     "address.city": cityRegex,
-                    "address.country": countryRegex
+                    "address.country": countryRegex,
+                    "occupancy": {$gte: occupancy}
+
                 }, {sort: {submitted: -1}});
                 /**
                 var results = Properties.find({
@@ -254,6 +266,18 @@ Template.propertiesList.helpers({
     todayDate: function () {
 
         return formateDates(new Date);
+    },
+
+    occupancySelections: function () {
+
+        return [1,2,3,4,5];
+    },
+
+    selectedOccupancy: function () {
+
+        if (Session.get('occupancy') == this)
+            return "selected";
+
     }
 
 });
@@ -275,6 +299,11 @@ Template.propertiesList.events({
         Session.set('searchCity',document.getElementById('searchCity').value.trim());
         Session.set('searchCountry',document.getElementById('searchCountry').value.trim());
 
+
+
+        console.log("getEle..." + document.getElementById('occupancy').value);
+        Session.set('occupancy',document.getElementById('occupancy').value);
+
         Session.set('doSearch', true);
         console.log("doSearch : " + Session.get('doSearch'));
 
@@ -289,6 +318,7 @@ Template.propertiesList.events({
         Session.set('checkOutDate', checkOut);
         Session.set('searchCity',$(e.target).find('[name=searchCity]').val());
         Session.set('searchCountry',$(e.target).find('[name=searchCountry]').val());
+        Session.set('occupancy',$(e.target).find('[name=occupancy]').val());
         doSearch = true;
         console.log("doSearch : " + doSearch);
     },
@@ -330,6 +360,7 @@ Template.propertiesList.events({
         Session.set('checkOutDate', "");
         Session.set('searchCity',"");
         Session.set('searchCountry',"");
+        Session.set('occupancy', 2);
         Session.set('resultsCount', undefined);
         doSearch = true;
         console.log("doSearch : " + doSearch);

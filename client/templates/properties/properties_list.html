@@ -11,6 +11,17 @@
 
                 <label class="control-label" for="checkOut">Check Out Date</label>
                 <input id="checkOut" name="checkOut" type="date" min="{{todayDate}}" value="{{checkOutDate}}">
+
+
+
+
+
+                <label class="control-label" for="occupancy">Guests</label>
+                <select name="occupancy" id="occupancy">
+                    {{#each occupancySelections}}
+                        <option {{selectedOccupancy}} value={{this}}>{{this}}</option>
+                    {{/each}}
+                </select>
             </div>
 
             Search properties in<br>
